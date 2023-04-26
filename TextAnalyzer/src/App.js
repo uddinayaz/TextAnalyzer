@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import About from './components/About';
+// import About from './components/About';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
 
@@ -9,8 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-} from "react-router-dom";
+  } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState(`light`); //whether dark mode is enabled or not//
   const [alert, setAlert] = useState(null);
@@ -28,7 +27,7 @@ function App() {
  const toggleMode = ()=>{
   if(mode === 'light'){
   setMode('dark');
-  document.body.style.backgroundColor = '#203354';
+  document.body.style.backgroundColor = '#332940';
   showAlert("Dark mode has been enabled", "success");
    } 
    else{
@@ -41,12 +40,12 @@ function App() {
      <>
     {/* <Navbar title="TextUtils" aboutText="About"/> */}
     <Router>
-    <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+    <Navbar title="TextAnalyzer" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert}/>
     <div className="container my-3">
     <Switch>
           <Route exact path="/about">
-            <About />
+            {/* <About /> */}
           </Route>
           <Route exact path="/">
           <TextForm heading="Enter the text to analyze below" mode={mode}/>
